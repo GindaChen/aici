@@ -23,3 +23,6 @@ dist/
 logs
 controllers/RustPython/
 *.cpython*.so
+
+.idea/
+scratch/
