@@ -17,8 +17,12 @@ data = {
 }
 
 # read tmp/prompt.txt
-with open('tmp/prompt.txt', 'r') as file:
-    data['prompt'] = file.read()
+try:
+    with open('tmp/prompt.txt', 'r') as file:
+        data['prompt'] = file.read()
+except FileNotFoundError as e:
+    print(f'File not found: {e}. Use default prompt.')
+    pass
 
 response = requests.post(url, headers=headers, json=data, stream=True)
 
